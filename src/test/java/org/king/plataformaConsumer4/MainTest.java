@@ -21,19 +21,22 @@ class MainTest {
     void testGreetAll() {
         Library library = new Library();
         ArrayList<String> result = library.greetAll("plataforma-consumer-4");
-        assertEquals(6,result.size());
+        assertEquals(9,result.size());
         assertEquals("Via plataforma: Hello from plataforma, plataforma-consumer-4!", result.get(0));
-        assertEquals("Via plataforma: Hello, plataforma!", result.get(1));
-        assertEquals("Via plataforma: Greetings, plataforma!", result.get(2));
-        assertEquals("Via plataforma: Salutations, plataforma!", result.get(3));
-        assertEquals("Via plataforma: Hej, plataforma!", result.get(4));
-        assertEquals("Via plataforma: Kon'nichiwa, plataforma!", result.get(5));
+        assertEquals("Via plataforma: Hello, plataforma-consumer-4!", result.get(1));
+        assertEquals("Via plataforma: Greetings, plataforma-consumer-4!", result.get(2));
+        assertEquals("Via plataforma: Salutations, plataforma-consumer-4!", result.get(3));
+        assertEquals("Via plataforma: Hej, plataforma-consumer-4!", result.get(4));
+        assertEquals("Via plataforma: Kon'nichiwa, plataforma-consumer-4!", result.get(5));
+        assertEquals("Salama, plataforma-consumer-4!", result.get(6));
+        assertEquals("Përshëndetje from plataforma-consumer-4, plataforma-consumer-4!", result.get(7));
+        assertEquals("Witam from plataforma-consumer-2, plataforma-consumer-4!", result.get(8));
     }
     @Test
     void testGreet() {
         Library library = new Library();
         String result = library.greet("plataforma-consumer-4");
-        assertEquals("Hello from plataforma-consumer-4, plataforma-consumer-4!", result);
+        assertEquals("Përshëndetje from plataforma-consumer-4, plataforma-consumer-4!", result);
     }
     @Test
     void testGreet1() {
@@ -61,5 +64,11 @@ class MainTest {
         Library library = new Library();
         String result = library.greet5("plataforma-consumer-4");
         assertEquals("Via plataforma: Kon'nichiwa, plataforma-consumer-4!", result);
+    }
+    @Test
+    void testGreet6() {
+        Library library = new Library();
+        String result = library.greet6("plataforma-consumer-4");
+        assertEquals("Salama, plataforma-consumer-4!", result);
     }
 }
