@@ -49,7 +49,7 @@ sonar {
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact("build/libs/plataforma-consumer-1-${version}.jar") {
+            artifact("build/libs/plataformaConsumer4-${version}.jar") {
                 extension 'jar'
             }
         }
