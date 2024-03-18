@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.sonarqube' version '4.4.1.3373'
+}
+apply plugin: 'maven-publish'
+
+group 'org.king.plataformaConsumer4'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://nexus.kingq12024.sa-demo.beescloud.com/repository/maven-releases/'
+    }
+    maven {
+        url 'https://nexus.kingq12024.sa-demo.beescloud.com/repository/maven-snapshots/'
+    }
+}
+
+dependencies {
+    implementation platform('org.king.plataforma-bom:plataforma-bom:1.0.2')
+    implementation 'org.king.plataforma:plataforma'
+    implementation 'org.king.libDep1:lib-dep-1'
+    implementation 'org.king.libDep2:lib-dep-2'
+    implementation 'org.king.libDep3:lib-dep-3'
+    implementation 'org.king.libDep4:lib-dep-4'
+    implementation 'org.king.libDep5:lib-dep-5'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+apply plugin : "java"
+
+test {
+    useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property 'sonar.projectKey', 'plataforma-consumer-4'
+        property 'sonar.organization', 'king'
+        property 'sonar.host.url', ' https://sonarqube.kingq12024.sa-demo.beescloud.com/'
+        property 'sonar.token', 'sqa_7e6d65b9f302f6d68761a5d70e4ab9e5786ff085'
+        property 'sonar.gradle.skipCompile', 'true'
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact("build/libs/plataforma-consumer-1-${version}.jar") {
+                extension 'jar'
+            }
+        }
+    }
+    repositories {
+        maven {
+            name 'nexus'
+            url "https://nexus.kingq12024.sa-demo.beescloud.com/repository/maven-snapshots/"
+            credentials {
+                username project.repoUser
+                password project.repoPassword
+            }
+        }
+    }
+}
+
+publishMavenPublicationToNexusRepository.dependsOn jar
