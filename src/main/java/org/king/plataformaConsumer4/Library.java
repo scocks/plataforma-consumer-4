@@ -1,56 +1,86 @@
 package org.king.plataformaConsumer4;
 
-import java.util.ArrayList;
-
 public class Library {
-    public String[] count(Integer number) {
-        String[] lines = new String[number];
-        for (int i = 0; i < number; i++) {
-            lines[i] = "i = " + i;
-        }
-        return lines;
-    }
-    public ArrayList<String> greetAll(String name) {
-        org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        org.king.plataformaConsumer2.Library plataformaConsumer2 = new org.king.plataformaConsumer2.Library();
-        ArrayList<String> result = plataforma.greetAll(name);
-        for (int i = 0; i < result.size(); i++) {
-            result.set(i, "Via plataforma: " + result.get(i));
-        }
-        result.add(greet6(name));
-        result.add(greet(name));
-        result.add(plataformaConsumer2.greet(name));
-        return result;
-    }
-
     public String greetPlataforma(String name) {
         org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        return plataforma.greet(name);
+        return "greet from plataforma-consumer-4 via plataforma greet " + plataforma.greet(name);
     }
     public String greet(String name) {
-        return "Përshëndetje from plataforma-consumer-4, " + name + "!";
+        return "greet from plataforma-consumer-4 " + name;
     }
     public String greet1(String name) {
         org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        return "Via plataforma: " + plataforma.greet1(name);
+        return "greet1 from plataforma-consumer-4 via plataforma greet1 " + plataforma.greet1(name);
     }
     public String greet2(String name) {
         org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        return "Via plataforma: " + plataforma.greet2(name);    
+        return "greet2 from plataforma-consumer-4 via plataforma greet2 " + plataforma.greet2(name);
     }
     public String greet3(String name) {
         org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        return "Via plataforma: " + plataforma.greet3(name);    
+        return "greet3 from plataforma-consumer-4 via plataforma greet3 " + plataforma.greet3(name);
     }
     public String greet4(String name) {
         org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        return "Via plataforma: " + plataforma.greet4(name);    
+        return "greet4 from plataforma-consumer-4 via plataforma greet4 " + plataforma.greet4(name);
     }
     public String greet5(String name) {
         org.king.plataforma.Library plataforma = new org.king.plataforma.Library();
-        return "Via plataforma: " + plataforma.greet5(name);    
+        return "greet5 from plataforma-consumer-4 via plataforma greet5 " + plataforma.greet5(name);
     }
-    public String greet6(String name) {        
-        return "Salama, " + name + "!";    
+    public String greet6(String name) {     
+        org.king.libdep4.Library libdep4 = new org.king.libdep4.Library();  
+        return "greet6 from plataforma-consumer-4 " + libdep4.greet1(name);
+    }    
+    public String greet7(String name) {     
+        org.king.libdep4.Library libdep4 = new org.king.libdep4.Library();  
+        return "greet7 from plataforma-consumer-4 " + libdep4.greet2(name);        
+    }    
+    public String greet8(String name) {     
+        org.king.libdep5.Library libdep5 = new org.king.libdep5.Library();  
+        return "greet8 from plataforma-consumer-4 " + libdep5.greet1(name);
+    }    
+    public String greet9(String name) {     
+        org.king.libdep5.Library libdep5 = new org.king.libdep5.Library();  
+        return "greet9 from plataforma-consumer-4 " + libdep5.greet2(name);
+    }    
+    public String greet10(String name) {
+        return "greet10 from plataforma-consumer-4 " + name;
+    }
+    public String greet11(String name) {
+        return "greet11 from plataforma-consumer-4 " + name;        
+    }
+    public String greet12(String name) {
+        return "greet12 from plataforma-consumer-4 " + name;
+    }
+    public String greet13(String name) {
+        return "greet13 from plataforma-consumer-4 " + name;
+    }
+    public String greet14(String name) {
+        return "greet14 from plataforma-consumer-4 " + name;
+    }
+    public String greetPlataformaConsumer1(String name) {
+        org.king.plataformaConsumer1.Library plataforma = new org.king.plataformaConsumer1.Library();
+        return "greet from plataforma-consumer-4 via plataforma-consumer-1 greet " + plataforma.greet(name);
+    }
+    public String greetPlataformaConsumer2(String name) {
+        org.king.plataformaConsumer2.Library plataforma = new org.king.plataformaConsumer2.Library();
+        return "greet from plataforma-consumer-4 via plataforma-consumer-2 greet " + plataforma.greet(name);
+    }
+    public String greetPlataformaConsumer3(String name) {
+        org.king.plataformaConsumer3.Library plataforma = new org.king.plataformaConsumer3.Library();
+        return "greet from plataforma-consumer-4 via plataforma-consumer-3 greet " + plataforma.greet(name);
+    }
+    public String unused1(String name) {
+        return "unused1 from plataforma-consumer-4 " + name;
+    }
+    public String unused2(String name) {
+        return "unused2 from plataforma-consumer-4 " + name;
+    }
+    public String unused3(String name) {
+        return "unused3 from plataforma-consumer-4 " + name;
+    }
+    public String unused4(String name) {
+        return "unused5 from plataforma-consumer-4 " + name;
     }
 }
